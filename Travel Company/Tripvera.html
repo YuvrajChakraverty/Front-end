@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripvera</title>
+</head>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Exo&family=Source+Serif+Pro&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exo&family=Saira&family=Source+Serif+Pro&display=swap"
+    rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Courgette&display=swap" rel="stylesheet">
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    * {
+        padding: 0%;
+        margin: 0%;
+    }
+
+
+    /* HEADER */
+
+    header {
+        position: relative;
+        height: 12.5vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #title {
+        position: relative;
+        font-size: 3rem;
+        font-family: 'Exo', sans-serif;
+        animation: titleslide 1.2s ease-out 0ms alternate forwards;
+        text-shadow: 2px 2px rgb(204, 200, 200);
+    }
+
+    @keyframes titleslide {
+        0% {
+            transform: translateX(-200px);
+        }
+    }
+
+    header::before {
+        content: "";
+        background: url(images/header_bg.jpg) no-repeat -176px -362px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        z-index: -1;
+    }
+
+    /* NAV */
+
+    nav {
+        display: flex;
+        position: sticky;
+        top: 0px;
+        height: 2.8rem;
+        /* background: rgb(35 34 34); */
+        background: rgba(0, 0, 0, 0.89);
+        color: white;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 10px 0px 5px;
+        z-index: 3;
+    }
+
+    #menu ul {
+        display: flex;
+        list-style: none;
+        justify-content: space-evenly;
+        align-items: center;
+        /* margin-left: 17%; */
+    }
+
+    #menu ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 0px 10px;
+        border-radius: 15px;
+        margin: 0px 25px;
+        font-family: 'Saira', sans-serif;
+    }
+
+    #menu ul li a:hover {
+        color: black;
+        background: white;
+        border: 1px solid white;
+        font-size: 1.15rem;
+    }
+
+    #user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.8;
+    }
+
+    #user a {
+        color: white;
+    }
+
+    #user img {
+        /* height: 1.6rem; */
+        margin: 2px;
+        padding: 3px;
+    }
+
+    #options {
+        /* height: 1.6rem; */
+        padding: 4px 5px 0px 10px;
+        margin-right: 80px;
+    }
+
+
+
+    /* CONTENT */
+
+    #content {
+        position: relative;
+        padding: 0% 6%;
+        /* margin-bottom: 21px; */
+        display: grid;
+        grid-row-gap: 0.4rem;
+        grid-column-gap: 8.1%;
+        grid-template-areas:
+            "searchbar searchbar"
+            "tiles form"
+            "article form";
+        /* "footer footer"; */
+        grid-template-columns: 5.5fr 2fr;
+        grid-template-rows: 1fr 5fr 1.4fr;
+    }
+
+    #content::before {
+        content: "";
+        background: url(Images/Mountains.jpg) no-repeat center center/cover;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        opacity: 80%;
+        z-index: -1;
+    }
+
+    #form label {
+        cursor: pointer;
+    }
+
+    #searchbar {
+        grid-area: searchbar;
+        padding-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    #searchout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #search_ {
+        position: relative;
+        width: 32%;
+        height: 40px;
+        padding: 10px;
+        text-align: center;
+        border: 2px solid rgb(82, 78, 78);
+        border-radius: 20px;
+        font-size: 1em;
+        font-style: italic;
+        background: rgba(238, 236, 236, 0.2);
+        font-weight: bold;
+    }
+
+    #search_:hover {
+        transform: scale(1.03);
+
+    }
+
+    #searchout label {
+        margin: 0px 15px;
+    }
+
+    #searchout label:hover {
+        cursor: pointer;
+    }
+
+    /* TILES */
+
+    #tiles {
+        /* border: 2px solid black; */
+        padding: 0px 0px;
+        grid-area: tiles;
+        display: grid;
+        grid-gap: 0.7rem;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(3, auto);
+    }
+
+
+    .tileimg {
+        height: 7rem;
+        /* padding:  6.2px 0px 6.2px 8px; */
+        padding: 7px;
+        /* border: 1px solid black; */
+        border-radius: 15px;
+        opacity: 0.8;
+    }
+
+    .tile {
+        /* border: 1px solid black; */
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        box-shadow: 2px 1.5px rgb(88, 84, 84);
+        font-family: 'Signika', sans-serif;
+    }
+
+    .tile:hover {
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .tilelink a {
+        text-decoration: none;
+        color: black;
+        display: block;
+        margin: 0px auto;
+        height: 10px;
+        font-size: 0.85rem;
+    }
+
+    .tilelink a:hover {
+        color: rgb(37, 10, 190);
+        /* text-decoration: underline; */
+    }
+
+    .tile h3 {
+        margin-bottom: 25px;
+        text-shadow: 1px 1px white;
+        font-family: 'Baloo 2', cursive;
+    }
+
+    .tile h3 a {
+        font-size: 1.37rem;
+        margin-bottom: 30px;
+    }
+
+    .tile h3 a:hover {
+        text-decoration: none;
+    }
+
+    .tilelink {
+        margin: auto;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    /* ARTICLE */
+
+    #article {
+        grid-area: article;
+        /* border: 1px solid black;      */
+        display: grid;
+        grid-template-columns: 2fr 5fr 1.5fr;
+        grid-template-areas: 'label guide expert';
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.37);
+        padding: 4px 12px;
+        margin-top: 8px;
+    }
+
+    #article:hover {
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    #label {
+        grid-area: label;
+        font-size: 1.3rem;
+        text-align: center;
+        margin: auto;
+        border-right: 2px solid rgb(59, 59, 59);
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: bold;
+        /* background: cyan; */
+    }
+
+    #guide {
+        grid-area: guide;
+        font-size: 0.85rem;
+        text-align: center;
+        margin: auto;
+    }
+
+    #expert {
+        grid-area: expert;
+        margin: auto;
+        padding: 0% 0%;
+    }
+
+    #expert button {
+        width: 110%;
+        border-radius: 7px;
+        background: rgba(67, 67, 67, 0.6);
+        color: white;
+        padding: 4px 15px;
+    }
+
+    #expert button:hover {
+        cursor: pointer;
+        background: rgba(0, 0, 139, 0.6);
+        color: white;
+    }
+
+    /* FORM */
+
+    #form {
+        grid-area: form;
+        display: grid;
+        grid-row-gap: 1rem;
+        grid-column-gap: 1rem;
+        /* border: 1px solid black; */
+        font-family: 'Ubuntu', sans-serif;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.3);
+        /* background: rgba(230, 227, 227, 0.4); */
+        padding: 15px 18px;
+        grid-template-areas:
+            'flights flights'
+            'start start'
+            'destination destination'
+            'triptype triptype'
+            'departure arrival'
+            'buttons buttons';
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.3fr 1fr 1fr 0.5fr 0.8fr 0.8fr;
+    }
+
+    #flights {
+        grid-area: flights;
+        margin: 0px auto;
+        text-shadow: 1px 1px white;
+    }
+
+    #start_ {
+        grid-area: start;
+        /* width: 200px; */
+    }
+
+    #start:hover {
+        cursor: pointer;
+    }
+
+    #destination_ {
+        grid-area: destination;
+        border-radius: 5px;
+    }
+
+    #destination {
+        cursor: pointer;
+    }
+
+    #form h3 {
+        padding-left: 20px;
+    }
+
+    #triptype {
+        grid-area: triptype;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #oneway:hover {
+        cursor: pointer;
+    }
+
+    #roundtrip:hover {
+        cursor: pointer;
+    }
+
+    #departure_ {
+        grid-area: departure;
+        margin: 0px auto;
+    }
+
+    #departure:hover {
+        cursor: pointer;
+    }
+
+    #arrival_ {
+        grid-area: arrival;
+        margin: 0px auto;
+    }
+
+    #arrival:hover {
+        cursor: pointer;
+    }
+
+    #buttons {
+        grid-area: buttons;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #buttons .butt:hover {
+        cursor: pointer;
+        background: rgba(0, 0, 139, 0.6);
+    }
+
+    #buttons .butt {
+        width: 80px;
+        height: 1.7rem;
+        border-radius: 10px;
+        background: rgba(67, 67, 67, 0.6);
+        font-weight: bold;
+        color: white;
+    }
+
+
+    h4 {
+        padding-bottom: 8px;
+        padding-left: 8px;
+    }
+
+    #gap {
+        height: 104px;
+    }
+
+    /* FOOTER */
+
+    footer {
+        height: 50vh;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        grid-area: footer;
+        padding: 0rem 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    #footlist {
+        list-style: none;
+        display: flex;
+    }
+
+    .footbar {
+        color: white;
+        text-decoration: none;
+        margin: 0px 50px;
+    }
+
+    .footicon {
+        height: 2rem;
+        margin: 0px 40px;
+    }
+
+    #footicons {
+        list-style: none;
+        display: flex;
+    }
+
+    .invert {
+        filter: invert(100%);
+    }
+
+    .icon {
+        height: 1.9rem;
+    }
+
+    .input1 {
+        height: 3em;
+        width: 100%;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.4);
+        padding: 4px 20px;
+        text-align: center;
+        margin: 10px 0px;
+        font-weight: bold;
+    }
+
+    .input2 {
+        height: 1.6em;
+        width: 10em;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.4);
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    
+
+        <header id="header">
+            <h1 id="title">TRIPVERA</h1>
+        </header>
+
+        <nav id="nav">
+
+            <div>
+                <a href=""><img src="Icons/options.png" alt="" id="options" class="invert icon"></a>
+            </div>
+
+            <div id="menu">
+                <ul>
+                    <li><a href="">Hotels</a></li>
+                    <li><a href="">Villas</a></li>
+                    <li><a href="">Flights</a></li>
+                    <li><a href="">Trains</a></li>
+                    <li><a href="">Buses</a></li>
+                </ul>
+            </div>
+
+            <div id="user">
+                <img src="Icons/user-profile.png" alt="user_img" class="invert icon">
+                <a href="" id="sign">Sign-in/Sign-up</a>
+            </div>
+        </nav>
+
+
+
+    <section id="content">
+
+        <div id="searchbar">
+            <div id="searchout">
+                <input type="search" name="search_" id="search_" placeholder="search cities, hotels, trains, etc.   ">
+                <label for="search_"><img src="Icons/search.png" alt="seacrh_icon" class="icon"></label>
+            </div>
+        </div>
+
+        <section id="tiles">
+            <div class="tile">
+                <img src="Images/Paris.jpg" alt="Paris" class="tileimg">
+                <div class="tilelink">
+                    <h3><a href="">PARIS</a></h3>
+                    <a href="">View Packages</a><br>
+                    <a href="">Search Hotels</a>
+                </div>
+            </div>
+            <div class="tile">
+                <img src="Images/NYC.jpg" alt="NYC" class="tileimg">
+                <div class="tilelink">
+                    <h3><a href="">NEW YORK</a></h3>
+                    <a href="">View Packages</a><br>
+                    <a href="">Search Hotels</a>
+                </div>
+            </div>
+            <div class="tile">
+                <img src="Images/London.jpg" alt="london" class="tileimg">
+                <div class="tilelink">
+                    <h3><a href="">&nbsp&nbspLONDON&nbsp&nbsp</a></h3>
+                    <a href="">View Packages</a><br>
+                    <a href="">Search Hotels</a>
+                </div>
+            </div>
+            <div class="tile">
+                <img src="Images/Dubai.jpg" alt="Dubai" class="tileimg">
+                <div class="tilelink">
+                    <h3><a href="">DUBAI</a></h3>
+                    <a href="">View Packages</a><br>
+                    <a href="">Search Hotels</a>
+                </div>
+            </div>
+            <div class="tile">
+                <img src="Images/Singapore.jpg" alt="Singapore" class="tileimg">
+                <div class="tilelink">
+                    <h3><a href="">SINGAPORE</a></h3>
+                    <a href="">View Packages</a><br>
+                    <a href="">Search Hotels</a>
+                </div>
+            </div>
+            <div class="tile">
+                <img src="Images/Rome.jpg" alt="Rome" class="tileimg">
+                <div class="tilelink">
+                    <h3><a href="">ROME</a></h3>
+                    <a href="">View Packages</a><br>
+                    <a href="">Search Hotels</a>
+                </div>
+            </div>
+            <div class="tile">
+                <img src="Images/Bangkok.jpg" alt="Bangkok" class="tileimg">
+                <div class="tilelink">
+                    <h3><a href="">&nbspBANGKOK&nbsp</a></h3>
+                    <a href="">View Packages</a><br>
+                    <a href="">Search Hotels</a>
+                </div>
+            </div>
+            <div class="tile">
+                <img src="Images/Sydney.jpg" alt="Sydney" class="tileimg">
+                <div class="tilelink">
+                    <h3><a href="">SYDNEY</a></h3>
+                    <a href="">View Packages</a><br>
+                    <a href="">Search Hotels</a>
+                </div>
+            </div>
+            <div class="tile">
+                <img src="Images/Tokyo.jpg" alt="Tokyo" class="tileimg">
+                <div class="tilelink">
+                    <h3><a href="">TOKYO</a></h3>
+                    <a href="">View Packages</a><br>
+                    <a href="">Search Hotels</a>
+                </div>
+            </div>
+
+        </section>
+
+        <article id="article">
+            <div id="label">Having Difficulty Planning a Trip ?<br>Let Our Experts Guide You...</div>
+            <p id="guide">Going through all the details of dozens of unexplored places to visit, with hundreds of
+                flights leading to them & a thousand staying options in-order to plan the perfect trip can be a long &
+                tedious job. <br>Let our experts guide you through the process and make your trip effortless & worth
+                remembering.</p>
+            <div id="expert">
+                <a href=""><button>Refer<br>Advisor</button></a>
+            </div>
+        </article>
+
+        <form action="backend.php" id="form">
+
+            <div id="flights">
+                <h2>Search Flights</h2>
+            </div>
+
+            <div id="start_">
+                <label for="start">
+                    <h3>From:</h3>
+                </label>
+                <select name="start" id="start" class="input1">
+                    <option disabled selected value>--- select ---</option>
+                    <option value="del">New Delhi</option>
+                    <option value="mum">Mumbai</option>
+                    <option value="ban">Banglore</option>
+                    <option value="che">Chennai</option>
+                    <option value="kol">Kolkata</option>
+                </select>
+            </div>
+            <div id="destination_">
+                <label for="destination">
+                    <h3>To:</h3>
+                </label>
+                <select name="destination" id="destination" class="input1">
+                    <option disabled selected value>--- select ---</option>
+                    <option value="Par">Paris</option>
+                    <option value="nyc">New York City</option>
+                    <option value="lon">London</option>
+                    <option value="dub">Dubai</option>
+                    <option value="sin">Singapore</option>
+                    <option value="rom">Rome</option>
+                    <option value="ban">Bangkok</option>
+                    <option value="syd">Sydney</option>
+                    <option value="tok">Tokyo</option>
+                </select>
+            </div>
+            <div id="triptype">
+                <div>
+                    <input type="radio" name="oneway" id="oneway">
+                    <label for="oneway"><b>&nbsp One Way</b></label>
+                </div>
+                <div>
+                    <input type="radio" name="oneway" id="roundtrip">
+                    <label for="roundtrip"><b>&nbsp Round Trip</b></label>
+                </div>
+            </div>
+
+            <div id="departure_">
+                <label for="departure">
+                    <h4>Departure:</h4>
+                </label>
+                <input type="date" name="departure" id="departure" class="input2">
+            </div>
+            <div id="arrival_">
+                <label for="">
+                    <h4>Arrival:</h4>
+                </label>
+                <input type="date" name="arrival" id="arrival" class="input2">
+            </div>
+
+            <div id="buttons">
+                <div id="reset" class="button">
+                    <input type="reset" value="Reset" name="reset" class="butt">
+                </div>
+                <div id="search" class="button">
+                    <button class="butt">Search</button>
+                </div>
+            </div>
+
+
+        </form>
+
+        <div id="gap"></div>
+
+    </section>
+    <footer>
+        <div id="footbar">
+            <ul id="footlist">
+                <li><a href="" class="footbar">About</a></li>
+                <li><a href="" class="footbar">Community</a></li>
+                <li><a href="" class="footbar">Support</a></li>
+                <li><a href="" class="footbar">Help</a></li>
+                <li><a href="" class="footbar">Contact Us</a></li>
+            </ul>
+        </div>
+        <div id="footicons_">
+            <ul id="footicons">
+                <li><a href=""><img src="Icons/Fb.png" class="invert footicon" alt=""></a></li>
+                <li><a href=""><img src="Icons/Instagram.png" class="invert footicon" alt=""></a></li>
+                <li><a href=""><img src="Icons/G+.png" class="invert footicon" alt=""></a></li>
+                <li><a href=""><img src="Icons/Twitter.png" class="invert footicon" alt=""></a></li>
+            </ul>
+        </div>
+        <div id="copyright">
+            &COPY 2021 TRIPVERA &nbsp| &nbsp All Rights Reserved.
+        </div>
+
+    </footer>
+</body>
+
+</html>
